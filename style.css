@@ -1,0 +1,425 @@
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #ff8e8e;
+    --dark-color: #333;
+    --light-color: #fff;
+    --background-color: #fff5f5;
+    --text-color: #444;
+    --font-main: 'Montserrat', sans-serif;
+    --font-decorative: 'Dancing Script', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+header.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light-color);
+    position: relative;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-decorative);
+}
+
+.hero p {
+    font-size: 1.5rem;
+}
+
+section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-family: var(--font-decorative);
+}
+
+/* Contador de Tempo */
+.love-counter {
+    background-color: var(--light-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 2rem auto;
+    padding: 3rem 1rem;
+}
+
+.counter-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.counter-box {
+    text-align: center;
+    padding: 1.5rem;
+    min-width: 120px;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.counter-box:hover {
+    transform: translateY(-5px);
+}
+
+.counter-box span:first-child {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Linha do Tempo */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 1rem 2rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-date {
+    padding: 0.5rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border-radius: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-content {
+    padding: 1.5rem;
+    background-color: var(--light-color);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 2rem);
+    position: relative;
+    margin-top: 1rem;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: auto;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-right: auto;
+}
+
+.timeline-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-image {
+    margin-top: 1rem;
+}
+
+.timeline-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Galeria de Fotos */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.photo-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.photo-item:hover {
+    transform: scale(1.03);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--light-color);
+    padding: 0.5rem;
+    text-align: center;
+}
+
+/* Carta de Amor */
+.love-letter {
+    background-color: var(--light-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    margin: 3rem auto;
+    max-width: 800px;
+}
+
+.letter-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.letter-content p {
+    margin-bottom: 1.5rem;
+}
+
+.signature {
+    font-family: var(--font-decorative);
+    font-size: 1.5rem;
+    text-align: right;
+    margin-top: 2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+/* Estilos para "Em Construção" */
+.under-construction {
+    position: relative;
+    overflow: hidden;
+}
+
+.construction-banner {
+    background: linear-gradient(135deg, #fff6b7, #ffdea8);
+    border: 2px dashed #ffb347;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.construction-banner span {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #e67e22;
+    margin-bottom: 0.5rem;
+}
+
+.construction-banner p {
+    color: #d35400;
+    margin-top: 0.5rem;
+}
+
+.construction-icons {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+.construction-icons span {
+    margin: 0 5px;
+    animation: bounce 2s infinite;
+}
+
+.construction-icons span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.construction-icons span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Estilo específico para a galeria */
+.photo-item.under-construction {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+}
+
+/* Estilo específico para a timeline */
+.timeline-item.under-construction .timeline-content {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+    text-align: center;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-height: 90vh;
+    max-width: 90vw;
+    animation: zoom 0.3s;
+    margin-top: 5vh;
+}
+
+@keyframes zoom {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+.caption {
+    margin: 15px auto;
+    color: white;
+    text-align: center;
+    max-width: 80%;
+    font-size: 1.1rem;
+}
+
+/* Adiciona cursor pointer nas fotos */
+.photo-item img {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.photo-item img:hover {
+    transform: scale(1.02);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .counter-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        padding-left: 70px;
+    }
+    
+    .timeline-date {
+        left: 30px;
+    }
+    
+    .timeline-content {
+        width: 100%;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .counter-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .counter-box {
+        min-width: 100px;
+    }
+    
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+}
