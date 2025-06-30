@@ -1,0 +1,28 @@
+  {
+    "name": "our-story",
+    "version": "1.0.0",
+    "description": "## 📝 Description",
+    "main": "script.js",
+    "scripts": {
+    "start:dev": "tsx watch src/script.ts",
+    "build": "tsup src/script.ts --format cjs,esm --dts --minify",
+    "start": "node dist/script.js",
+    "prepare": "npm run build"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Gustavo-Zamai/our-story.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Gustavo-Zamai/our-story/issues"
+    },
+    "homepage": "https://github.com/Gustavo-Zamai/our-story#readme",
+    "devDependencies": {
+      "tsup": "^8.5.0",
+      "tsx": "^4.20.3",
+      "typescript": "^5.8.3"
+    }
+  }
