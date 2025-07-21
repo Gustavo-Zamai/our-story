@@ -22,7 +22,8 @@ This project is a personal website that celebrates a romantic relationship, feat
 
 - HTML5  
 - CSS3 (with Flexbox and Grid)  
-- JavaScript (ES6)   
+- JavaScript (ES6)
+- Typescript  
 
 ## 🚀 How to Run the Project
 
@@ -36,12 +37,22 @@ cd our-story
 
 - Open `index.html` in your preferred browser
 
+#### 3. For development (if you make changes to TypeScript):
+
+```bash
+    run npm build
+    "build": "tsup src/script.ts --format cjs,esm --dts --minify",
+```
+
 ## 🖼️ File Structure
 ```bash
 our-story/
 ├── index.html          # Main page
 ├── style.css           # Main styles
-├── script.js           # Compiled JavaScript
+├── src/
+├  ├── script.ts
+├── dist/
+├  ├── script.js        # Compiled Javascript    
 ├── images/             # Folder for couple's photos
 ├── assets/             # Additional resources
 ```
