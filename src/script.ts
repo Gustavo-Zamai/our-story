@@ -1,47 +1,48 @@
-// Data de início do relacionamento - 24 de março de 2025
-const startDate: Date = new Date(2025, 2, 24); // Mês começa em 0 (janeiro=0)
-
 function updateCounter(): void {
     const now: Date = new Date();
-    const diff: number = now.getTime() - startDate.getTime();
-    
-    // Cálculo do tempo total
-    const secondsTotal: number = Math.floor(diff / 1000);
-    const minutesTotal: number = Math.floor(secondsTotal / 60);
-    const hoursTotal: number = Math.floor(minutesTotal / 60);
-    const daysTotal: number = Math.floor(hoursTotal / 24);
-    
-    // Cálculo de anos e meses (mais preciso)
+    const startDate: Date = new Date(2025, 2, 24); // 24/03/2025
+
+    // Cálculo de anos e meses corridos
     let years: number = now.getFullYear() - startDate.getFullYear();
     let months: number = now.getMonth() - startDate.getMonth();
-    
+
+    // Ajuste se ainda não completou o ano
     if (months < 0) {
         years--;
         months += 12;
     }
-    
-    // Cálculo de dias restantes
-    const tempDate: Date = new Date(startDate);
-    tempDate.setFullYear(tempDate.getFullYear() + years);
-    tempDate.setMonth(tempDate.getMonth() + months);
-    
-    const days: number = Math.floor((now.getTime() - tempDate.getTime()) / (1000 * 60 * 60 * 24));
-    
+
+    // Ajuste para mês-versários COMEMORADOS (se ainda não chegou no dia 24 deste mês)
+    if (now.getDate() < startDate.getDate()) {
+        months--;
+    }
+
+    // Cálculo dos dias desde o último mês-versário (24 do último mês)
+    const lastAnniversary = new Date(startDate);
+    lastAnniversary.setFullYear(now.getFullYear());
+    lastAnniversary.setMonth(now.getMonth());
+    lastAnniversary.setDate(startDate.getDate());
+
+    if (lastAnniversary > now) {
+        lastAnniversary.setMonth(lastAnniversary.getMonth() - 1);
+    }
+
+    const daysSinceLastAnniversary = Math.floor((now.getTime() - lastAnniversary.getTime()) / (1000 * 60 * 60 * 24));
+
     // Horas, minutos e segundos do dia atual
-    const hours: number = hoursTotal % 24;
-    const minutes: number = minutesTotal % 60;
-    const seconds: number = secondsTotal % 60;
-    
+    const hours: number = now.getHours();
+    const minutes: number = now.getMinutes();
+    const seconds: number = now.getSeconds();
+
     // Atualiza o DOM
     document.getElementById('years')!.textContent = years.toString();
-    document.getElementById('months')!.textContent = months.toString();
-    document.getElementById('days')!.textContent = days.toString();
+    document.getElementById('months')!.textContent = months.toString(); // Mês-versários completos
+    document.getElementById('days')!.textContent = daysSinceLastAnniversary.toString();
     document.getElementById('hours')!.textContent = hours.toString();
     document.getElementById('minutes')!.textContent = minutes.toString();
     document.getElementById('seconds')!.textContent = seconds.toString();
 }
 
-// Atualiza imediatamente e depois a cada segundo
 updateCounter();
 setInterval(updateCounter, 1000);
 
